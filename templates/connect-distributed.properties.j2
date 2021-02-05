@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 
 # A list of host/port pairs to use for establishing the initial connection to the Kafka cluster.
-bootstrap.servers=172.18.206.47:9092
+bootstrap.servers={{ kafka_connect_bootstrap_servers }}
 
 # unique name for the cluster, used in forming the Connect cluster group. Note that this must not conflict with consumer group IDs
 group.id=connect-cluster

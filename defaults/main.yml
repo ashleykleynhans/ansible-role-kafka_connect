@@ -13,3 +13,5 @@ kafka_connect_mirror: "http://apache.uvigo.es/kafka"
 kafka_connect_package_name: "kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
 kafka_connect_package: "{{ kafka_package_name }}.tgz"
 kafka_connect_sources_url: "{{ kafka_mirror }}/{{ kafka_version }}/{{ kafka_package }}"
+
+kafka_connect_bootstrap_servers: 127.0.0.1:9092
