@@ -9,6 +9,7 @@
     name: "{{ kafka_connect_user }}"
     group: "{{ kafka_connect_group }}"
     home: /bin/false
+  ignore_errors: true
 
 - name: KAFKA CONNECT | Create install path
   file:
