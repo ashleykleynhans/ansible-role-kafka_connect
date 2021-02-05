@@ -1,0 +1,19 @@
+---
+
+- name: KAFKA CONNECT | Create kafka log path
+  file:
+    path: "{{  kafka_connect_log_path }}"
+    state: directory
+    owner: "{{ kafka_connect_user }}"
+    group: "{{ kafka_connect_group }}"
+    recurse: true
+    mode: "0755"
+
+- name: KAFKA CONNECT | Copy config
+  template:
+    src: connect-distributed.properties.j2
+    dest: "{{ kafkaa_connect_install_path }}/config/connect-distributed.properties"
+    mode: "0640"
+    owner: "{{ kafka_connect_user }}"
+    group: "{{ kafka_connect_group }}"
+  notify: restart kafka-connect

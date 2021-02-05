@@ -1,0 +1,7 @@
+---
+
+kafka_removeable_folders:
+  - bin
+  - config
+  - libs
+  - site-docs

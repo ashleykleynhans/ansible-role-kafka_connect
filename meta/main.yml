@@ -1,0 +1,14 @@
+---
+
+galaxy_info:
+  author: Ashley Kleynhans
+  company: Ashley Kleynhans
+  description: Ansible role to install the Apache Kafka binaries required for Kafka Connect.
+  license: GPLv2
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - kafka
+    - connect

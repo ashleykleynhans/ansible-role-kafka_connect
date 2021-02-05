@@ -1,0 +1,6 @@
+---
+
+- name: restart kafka-connect
+  systemd:
+    name: kafka-connect
+    state: restarted

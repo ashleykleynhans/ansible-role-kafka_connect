@@ -1,0 +1,55 @@
+---
+
+- name: KAFKA CONNECT | Ensure kafka group
+  group:
+    name: "{{ kafka_connect_group }}"
+
+- name: KAFKA CONNECT | Ensure kafka user
+  user:
+    name: "{{ kafka_connect_user }}"
+    group: "{{ kafka_connect_group }}"
+    home: /bin/false
+
+- name: KAFKA CONNECT | Create install path
+  file:
+    path: "{{ kafka_connect_install_path }}"
+    state: directory
+    owner: "{{ kafka_connect_user }}"
+    group: "{{ kafka_connect_group }}"
+    mode: "0755"
+
+- name: KAFKA CONNECT | Check prev installation
+  command: bash -c "ls {{ kafka_connect_install_path }}/libs"
+  register: kafka_check
+  changed_when: false
+  ignore_errors: true
+
+- name: KAFKA CONNECT | Check kafka version
+  command: bash -c "ls {{ kafka_connect_install_path }}/libs | grep 'kafka_{{ kafka_connect_scala_version }}-{{ kafka_connect_version }}.jar'"
+  register: kafka_version_check
+  changed_when: false
+  ignore_errors: true
+
+- name: KAFKA CONNECT | Remove old version
+  file:
+    path: "{{ kafka_connect_install_path }}/{{ item }}"
+    state: absent
+  with_items: "{{ kafka_connect_removeable_folders }}"
+  when: kafka_check is success and (kafka_version_check is failed or kafka_check.stdout == "")
+
+- name: KAFKA CONNECT | Untar kafka
+  unarchive:
+    extra_opts: ['--strip-components=1']
+    src: "{{ kafka_sources_url }}"
+    remote_src: true
+    dest: "{{ kafka_connect_install_path }}"
+    owner: "{{ kafka_connect_user }}"
+    group: "{{ kafka_connect_group }}"
+  when: 'kafka_version_check is failed or kafka_version_check.stdout == ""'
+
+- name: KAFKA CONNECT | Copy Daemon script
+  template:
+    src: kafka-connect.service.j2
+    dest: /lib/systemd/system/kafka-connect.service
+    mode: 0644
+  notify: restart kafka-connect

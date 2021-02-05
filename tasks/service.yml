@@ -1,0 +1,11 @@
+---
+
+- name: KAFKA CONNECT | Configuring service
+  systemd:
+    name: kafka-connect
+    state: started
+    enabled: true
+    daemon_reload: true
+
+- name: KAFKA CONNECT | Restart if necessary
+  meta: flush_handlers

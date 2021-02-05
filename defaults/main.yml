@@ -1,0 +1,15 @@
+---
+
+kafka_connect_version: 2.6.0
+kafka_connect__scala_version: 2.13
+
+kafka_connect_user: kafka
+kafka_connect_group: kafka
+
+kafka_connect_install_path: /opt/kafka
+kafka_connect_log_path: /var/log/kafka
+
+kafka_connect_mirror: "http://apache.uvigo.es/kafka"
+kafka_connect_package_name: "kafka_{{ kafka_scala_version }}-{{ kafka_version }}"
+kafka_connect_package: "{{ kafka_package_name }}.tgz"
+kafka_connect_sources_url: "{{ kafka_mirror }}/{{ kafka_version }}/{{ kafka_package }}"
