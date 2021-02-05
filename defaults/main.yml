@@ -1,7 +1,7 @@
 ---
 
 kafka_connect_version: 2.7.0
-kafka_connect__scala_version: 2.13
+kafka_connect_scala_version: 2.13
 
 kafka_connect_user: kafka
 kafka_connect_group: kafka
@@ -15,3 +15,5 @@ kafka_connect_package: "{{ kafka_connect_package_name }}.tgz"
 kafka_connect_sources_url: "{{ kafka_connect_mirror }}/{{ kafka_connect_version }}/{{ kafka_connect_package }}"
 
 kafka_connect_bootstrap_servers: 127.0.0.1:9092
+
+kafka_connect_java_home: /opt/java/current
