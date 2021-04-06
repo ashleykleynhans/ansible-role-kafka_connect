@@ -1,5 +1,7 @@
 ## 2021-04-06
 
+- Added template for startup script and allow min and
+  max heap size to be configurable.
 - Changed variable prefix to have double underscores.
 - Added more template variables.
 

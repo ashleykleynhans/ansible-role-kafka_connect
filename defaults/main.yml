@@ -20,3 +20,6 @@ kafka_connect__java_home: /opt/java/current
 
 kafka_connect__offset_flush_interval: 10000
 kafka_connect__offset_flush_timeout: 15000
+
+kafka_connect__heap_min_size: 256M
+kafka_connect__heap_max_size: 2G

@@ -54,3 +54,12 @@
     dest: /lib/systemd/system/kafka-connect.service
     mode: 0644
   notify: restart kafka-connect
+
+- name: KAFKA CONNECT | Copy Startup script
+  template:
+    src: connect-distributed.sh.j2
+    dest: "{{ kafka_connect__install_path }}/bin/connect-distributed.sh"
+    owner: "{{ kafka_connect__user }}"
+    group: "{{ kafka_connect__group }}"
+    mode: 0750
+  notify: restart kafka-connect
