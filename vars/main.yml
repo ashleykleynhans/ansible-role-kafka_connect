@@ -1,6 +1,6 @@
 ---
 
-kafka_connect_removeable_folders:
+kafka_connect__removeable_folders:
   - bin
   - config
   - libs

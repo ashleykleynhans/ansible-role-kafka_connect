@@ -5,11 +5,11 @@ After=network.target
 [Service]
 Type=forking
 Restart=on-failure
-Environment="JAVA_HOME={{ kafka_connect_java_home }}"
-Environment="LOG_DIR={{ kafka_connect_log_path }}"
-ExecStart={{ kafka_connect_install_path }}/bin/connect-distributed.sh -daemon {{ kafka_connect_install_path }}/config/connect-distributed.properties
-User={{ kafka_connect_user }}
-Group={{ kafka_connect_group }}
+Environment="JAVA_HOME={{ kafka_connect__java_home }}"
+Environment="LOG_DIR={{ kafka_connect__log_path }}"
+ExecStart={{ kafka_connect__install_path }}/bin/connect-distributed.sh -daemon {{ kafka_connect__install_path }}/config/connect-distributed.properties
+User={{ kafka_connect__user }}
+Group={{ kafka_connect__group }}
 
 [Install]
 WantedBy=multi-user.target

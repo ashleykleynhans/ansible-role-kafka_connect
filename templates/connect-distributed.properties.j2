@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 
 # A list of host/port pairs to use for establishing the initial connection to the Kafka cluster.
-bootstrap.servers={{ kafka_connect_bootstrap_servers }}
+bootstrap.servers={{ kafka_connect__bootstrap_servers }}
 
 # unique name for the cluster, used in forming the Connect cluster group. Note that this must not conflict with consumer group IDs
 group.id=connect-cluster
@@ -45,7 +45,10 @@ status.storage.replication.factor=3
 #status.storage.partitions=5
 
 # Flush much faster than normal, which is useful for testing/debugging
-offset.flush.interval.ms=10000
+offset.flush.interval.ms={{ kafka_connect__offset_flush_interval }}
+
+# Set the flush timeout, defaults to 5000ms
+offset.flush.timeout.ms={{ kafka_connect__offset_flush_timeout }}
 
 # These are provided to inform the user about the presence of the REST host and port configs 
 # Hostname & Port for the REST API to listen on. If this is set, it will bind to the interface used to listen to requests.
@@ -64,4 +67,4 @@ rest.port=8083
 # c) directories immediately containing the package directory structure of classes of plugins and their dependencies
 # Examples: 
 # plugin.path=/usr/local/share/java,/usr/local/share/kafka/plugins,/opt/connectors,
-plugin.path={{ kafka_connect_install_path }}/connectors
+plugin.path={{ kafka_connect__install_path }}/connectors
