@@ -1,16 +1,21 @@
 ---
 
-- name: KAFKA | Install
+- name: KAFKA CONNECT | Monitoring
+  import_tasks: monitoring.yml
+  tags:
+    - monitoring
+
+- name: KAFKA CONNECT | Install
   import_tasks: install.yml
   tags:
     - install
 
-- name: KAFKA | Configure
+- name: KAFKA CONNECT | Configure
   import_tasks: config.yml
   tags:
     - configure
 
-- name: KAFKA | Service
+- name: KAFKA CONNECT | Service
   import_tasks: service.yml
   tags:
     - service

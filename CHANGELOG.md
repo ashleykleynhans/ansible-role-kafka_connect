@@ -1,3 +1,7 @@
+## 2021-04-16
+
+- Added JMX exporter.
+
 ## 2021-04-06
 
 - Added template for startup script and allow min and

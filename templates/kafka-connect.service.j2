@@ -7,6 +7,8 @@ Type=forking
 Restart=on-failure
 Environment="JAVA_HOME={{ kafka_connect__java_home }}"
 Environment="LOG_DIR={{ kafka_connect__log_path }}"
+Environment="JMX_PORT={{ kafka_connect__jmx_port }}"
+Environment="EXTRA_ARGS={{ kafka_connect__opts }}"
 ExecStart={{ kafka_connect__install_path }}/bin/connect-distributed.sh -daemon {{ kafka_connect__install_path }}/config/connect-distributed.properties
 User={{ kafka_connect__user }}
 Group={{ kafka_connect__group }}
