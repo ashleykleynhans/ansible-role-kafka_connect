@@ -1,5 +1,6 @@
 ## 2021-04-16
 
+- Bugfix for  JMX exporter.
 - Added JMX exporter.
 
 ## 2021-04-06
