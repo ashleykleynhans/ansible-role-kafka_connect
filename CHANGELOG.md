@@ -1,3 +1,7 @@
+## 2021-04-21
+
+- Bugfix to move monitoring tasks to correct sequence.
+
 ## 2021-04-16
 
 - Bugfix for  JMX exporter.
