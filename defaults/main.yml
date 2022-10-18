@@ -9,7 +9,8 @@ kafka_connect__group: kafka
 kafka_connect__install_path: /opt/kafka
 kafka_connect__log_path: /var/log/kafka
 
-kafka_connect__mirror: "http://apache.is.co.za/kafka"
+#kafka_connect__mirror: "http://apache.is.co.za/kafka"
+kafka_connect__mirror: "https://archive.apache.org/dist/kafka"
 kafka_connect__package_name: "kafka_{{ kafka_connect__scala_version }}-{{ kafka_connect__version }}"
 kafka_connect__package: "{{ kafka_connect__package_name }}.tgz"
 kafka_connect__sources_url: "{{ kafka_connect__mirror }}/{{ kafka_connect__version }}/{{ kafka_connect__package }}"
