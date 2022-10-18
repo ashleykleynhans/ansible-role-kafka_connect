@@ -1,3 +1,8 @@
+## 2022-10-18
+
+- Update `kafka_connect__mirror` var to point to the
+  correct repo for package `kafka_2.13-2.7.0.tgz`.
+
 ## 2021-04-21
 
 - Bugfix to move monitoring tasks to correct sequence.
